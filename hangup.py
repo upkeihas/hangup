@@ -36,7 +36,7 @@ async def _log_to_syslog(msg: str) -> None:
   Generate a system log entry about detected event.
   """
   run([LOGGER_PATH,
-       f'--priority={"error" if "ERROR" in _msg else "warning"}',
+       f'--priority={"error" if "ERROR" in msg else "warning"}',
        msg])
 
 async def _notify(msg: str) -> None:
